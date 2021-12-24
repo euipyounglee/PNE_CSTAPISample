@@ -1,0 +1,2 @@
+-rw-r--r--|1|root|root|418|Jul|4|20:33|sbc_pattern_data_step_00003.csv
+-rw-r--r--|1|root|root|23440|Jul|4|20:33|sbc_schedule_info.sch

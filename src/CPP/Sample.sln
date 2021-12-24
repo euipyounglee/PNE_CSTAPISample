@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PSServer", "..\BCLib\SRC\PSServer\PSServer.vcxproj", "{A8005D6B-25F1-3638-AD56-008642CB8437}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PSServerAPI", "PSServerAPI\PSServerAPI.vcxproj", "{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A8005D6B-25F1-3638-AD56-008642CB8437} = {A8005D6B-25F1-3638-AD56-008642CB8437}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFC Application Sample", "MFC Application Sample\MFC Application Sample.vcxproj", "{5CCDF889-8505-439E-8E4B-D3FCB99D2491}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A8005D6B-25F1-3638-AD56-008642CB8437} = {A8005D6B-25F1-3638-AD56-008642CB8437}
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46} = {40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{12483270-EB54-493C-87C0-B4C3DCD932D0}"
+	ProjectSection(SolutionItems) = preProject
+		솔루션 설명.txt = 솔루션 설명.txt
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PSCommon", "..\BCLib\SRC\PSCommon\PSCommon.vcxproj", "{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		DebugForm|x64 = DebugForm|x64
+		Release|x64 = Release|x64
+		ReleaseForm|x64 = ReleaseForm|x64
+		Template|x64 = Template|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.Debug|x64.ActiveCfg = Debug|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.Debug|x64.Build.0 = Debug|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.DebugForm|x64.ActiveCfg = Debug|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.DebugForm|x64.Build.0 = Debug|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.Release|x64.ActiveCfg = Release|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.Release|x64.Build.0 = Release|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.ReleaseForm|x64.ActiveCfg = Release|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.ReleaseForm|x64.Build.0 = Release|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.Template|x64.ActiveCfg = Template|x64
+		{A8005D6B-25F1-3638-AD56-008642CB8437}.Template|x64.Build.0 = Template|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.Debug|x64.ActiveCfg = Debug|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.Debug|x64.Build.0 = Debug|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.DebugForm|x64.ActiveCfg = Debug|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.DebugForm|x64.Build.0 = Debug|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.Release|x64.ActiveCfg = Release|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.Release|x64.Build.0 = Release|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.ReleaseForm|x64.ActiveCfg = Release|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.ReleaseForm|x64.Build.0 = Release|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.Template|x64.ActiveCfg = Release|x64
+		{40B12662-AC0E-4D46-BE43-B0AF2FFAEB46}.Template|x64.Build.0 = Release|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.Debug|x64.ActiveCfg = Debug|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.Debug|x64.Build.0 = Debug|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.DebugForm|x64.ActiveCfg = Debug|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.DebugForm|x64.Build.0 = Debug|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.Release|x64.ActiveCfg = Release|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.Release|x64.Build.0 = Release|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.ReleaseForm|x64.ActiveCfg = Release|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.ReleaseForm|x64.Build.0 = Release|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.Template|x64.ActiveCfg = Release|x64
+		{5CCDF889-8505-439E-8E4B-D3FCB99D2491}.Template|x64.Build.0 = Release|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.Debug|x64.ActiveCfg = Debug|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.Debug|x64.Build.0 = Debug|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.DebugForm|x64.ActiveCfg = Debug|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.DebugForm|x64.Build.0 = Debug|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.Release|x64.ActiveCfg = Release|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.Release|x64.Build.0 = Release|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.ReleaseForm|x64.ActiveCfg = Release|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.ReleaseForm|x64.Build.0 = Release|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.Template|x64.ActiveCfg = Release|x64
+		{3E822E9E-4A3E-D185-4CAB-5227495A1BD2}.Template|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
