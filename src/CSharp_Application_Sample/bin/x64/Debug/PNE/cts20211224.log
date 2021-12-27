@@ -1,0 +1,68 @@
+2021/12/24 19:02:11.859 :: ctsSendSimpleTest Condition :: Step:1 StepType:4, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.000000 // EndTime:0.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/24 19:02:11.860 :: ctsSendSimpleTest Condition :: Step:2 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:1.000000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/24 19:02:11.871 :: ctsSendSimpleTest Condition :: Step:3 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/24 19:02:11.884 :: ctsSendSimpleTest Condition :: Step:4 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:10.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/24 19:02:11.895 :: ctsSendSimpleTest Condition :: Step:5 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/24 19:02:11.902 :: ctsSendSimpleTest Condition :: Step:6 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:20.500000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/24 19:02:11.911 :: ctsSendSimpleTest :: "d:\pmgrow\project\PNE_APISample\PNE_CSTAPISample\src\CSharp Application Sample\bin\x64\Debug\PNE\simpleTest.sch"
+2021/12/24 19:02:12.234 :: ctsSendSchedule API Ver: ctsAPI v1.0.19 [build: 2021-10-22 13:35:13]
+2021/12/24 19:02:12.235 :: SendScheduleToModule Try. ModuleNo [1] ch [1] nRetry [0]
+2021/12/24 19:02:12.251 :: 스케쥴 전송 시작 (SendScheduleToModuleFTP :: 2021/12/24 19:02:12)
+2021/12/24 19:02:12.375 :: 시험 안전조건이 설정 되어 있지 않습니다. !!!
+2021/12/24 19:02:12.377 :: Data 저장 폴더 생성 성공(c:\PNE\Schedule\Update\Update_20211224_190212)
+2021/12/24 19:02:12.717 :: Schedule 파일 생성 성공
+2021/12/24 19:02:12.717 :: ScheduleTarget ModuleID: 1, LCh: 0x1, HCh: 0x0
+2021/12/24 19:02:12.724 :: FTP 접속 시작
+2021/12/24 19:02:12.730 :: 모듈(1) IP : 192.168.4.111
+2021/12/24 19:02:12.737 :: FTP 접속 pass
+2021/12/24 19:02:12.847 :: FTP. 접속 완료.
+2021/12/24 19:02:12.847 :: FTP. 채널 상태 확인, 타겟 채널 개수(1)
+2021/12/24 19:02:12.860 :: START_INFO : /START_INFO/CH001
+2021/12/24 19:02:12.870 :: FTP responseCode 250
+2021/12/24 19:02:12.879 :: FTP. 채널 스캔 (MD:1, CH:1)
+2021/12/24 19:02:12.913 :: FTP. 작업 준비를 위한 채널 Clear 실행. (MD:1, CH:1)
+2021/12/24 19:02:12.941 :: FTP 전송 스케쥴 로딩 시작: d:\pmgrow\project\PNE_APISample\PNE_CSTAPISample\src\CSharp Application Sample\bin\x64\Debug\PNE\simpleTest.sch
+2021/12/24 19:02:12.941 :: 스케쥴 파일 로딩 성공
+2021/12/24 19:02:12.951 ::  SFT_CMD_SCHEDULE_START :: (1020) before sendcmmand
+2021/12/24 19:02:13.564 :: Module 1에 스케쥴 전송 준비 성공
+2021/12/24 19:02:13.564 ::  SFT_CMD_SCHEDULE_START :: (1020) after sendcmmand
+2021/12/24 19:02:13.571 :: c:\PNE\Schedule\M01[001]\StepStart\sbc_schedule_info.sch 파일 생성 시작
+2021/12/24 19:02:13.582 :: 고정 전압 상한: 4600.000000 온도 상한: 80.000000
+2021/12/24 19:02:13.593 :: c:\PNE\Schedule\M01[001]\StepStart\sbc_schedule_info.sch 파일 생성 완료
+2021/12/24 19:02:13.593 :: Set Chiller Use : 0
+2021/12/24 19:02:13.601 :: sbc로 전송하는 schedule File Size(35356), checksum(1450) 성공!!!
+(c:\PNE\Schedule\M01[001]\StepStart\sbc_schedule_info.sch)
+2021/12/24 19:02:13.607 :: 스케쥴 FTP로 전송 시작 (Fun_FtpPutFile :: 2021/12/24 19:02:13)
+2021/12/24 19:02:13.615 :: FTP responseCode 250
+2021/12/24 19:02:13.619 :: File Path : c:\PNE\Schedule\M01[001]\StepStart
+2021/12/24 19:02:13.626 :: File Name : sbc_schedule_info.sch
+2021/12/24 19:02:13.651 :: 스케쥴 FTP로 전송 완료 (Fun_FtpPutFile :: 2021/12/24 19:02:13)
+2021/12/24 19:02:13.651 :: 패턴 파일 개수 : 0, Wait Time : 0
+2021/12/24 19:02:14.295 :: Module 1에 스케쥴 전송 완료 성공 SFT_CMD_SCHEDULE_END 성공 
+2021/12/24 19:02:14.295 :: 스케쥴 전송 종료 (SendScheduleToModuleFTP :: 2021/12/24 19:02:14)
+2021/12/24 19:02:14.302 :: try FtpDisconnect1
+2021/12/24 19:02:14.309 :: try FtpDisconnect2
+2021/12/24 19:02:14.321 :: FtpDisconnect Complete
+2021/12/24 19:02:14.326 :: Intermediate success of schedule transmission. ModuleNo [1] ch [1]
+2021/12/24 19:02:14.388 :: Receive Module:1, Channel:1 (sbc ready for RUN)
+2021/12/24 19:02:14.994 :: ctsSendCommandCh : 0x1000, res : 1 / prev : -1 / retry:0
+2021/12/24 19:02:14.995 :: Schedule run success 1
+2021/12/24 19:02:26.001 :: CallBackStackedNotify 1 1
+2021/12/24 19:02:30.036 :: CallBackStackedNotify 1 1
+2021/12/24 19:02:34.081 :: CallBackStackedNotify 1 1
+2021/12/24 19:02:38.121 :: CallBackStackedNotify 1 1
+2021/12/24 19:02:42.159 :: CallBackStackedNotify 1 1
+2021/12/24 19:02:46.205 :: CallBackStackedNotify 1 1
+2021/12/24 19:02:50.255 :: CallBackStackedNotify 1 1
+2021/12/24 19:02:54.288 :: CallBackStackedNotify 1 1
+2021/12/24 19:02:58.320 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:02.361 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:06.397 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:10.428 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:14.456 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:18.510 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:22.547 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:26.582 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:30.627 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:34.659 :: CallBackStackedNotify 1 1
+2021/12/24 19:03:38.689 :: CallBackStackedNotify 1 1

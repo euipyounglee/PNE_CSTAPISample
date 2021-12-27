@@ -1,0 +1,58 @@
+2021/12/27 09:38:09.764 :: ctsSendSimpleTest Condition :: Step:1 StepType:4, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.000000 // EndTime:0.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:38:09.765 :: ctsSendSimpleTest Condition :: Step:2 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:1.000000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:38:09.775 :: ctsSendSimpleTest Condition :: Step:3 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:38:09.783 :: ctsSendSimpleTest Condition :: Step:4 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:10.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:38:09.790 :: ctsSendSimpleTest Condition :: Step:5 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:38:09.797 :: ctsSendSimpleTest Condition :: Step:6 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:20.500000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:38:09.804 :: ctsSendSimpleTest :: "d:\pmgrow\project\PNE_APISample\PNE_CSTAPISample\src\CSharp_Application_Sample\bin\x64\Debug\PNE\simpleTest.sch"
+2021/12/27 09:38:10.128 :: ctsSendSchedule API Ver: ctsAPI v1.0.19 [build: 2021-10-22 13:35:13]
+2021/12/27 09:38:10.128 :: SendScheduleToModule Try. ModuleNo [1] ch [1] nRetry [0]
+2021/12/27 09:38:10.136 :: 스케쥴 전송 시작 (SendScheduleToModuleFTP :: 2021/12/27 09:38:10)
+2021/12/27 09:38:10.254 :: 시험 안전조건이 설정 되어 있지 않습니다. !!!
+2021/12/27 09:38:10.257 :: Data 저장 폴더 생성 성공(c:\PNE\Schedule\Update\Update_20211227_093810)
+2021/12/27 09:38:10.598 :: Schedule 파일 생성 성공
+2021/12/27 09:38:10.598 :: ScheduleTarget ModuleID: 1, LCh: 0x1, HCh: 0x0
+2021/12/27 09:38:10.605 :: FTP 접속 시작
+2021/12/27 09:38:10.616 :: 모듈(1) IP : 192.168.4.111
+2021/12/27 09:38:10.622 :: FTP 접속 pass
+2021/12/27 09:38:10.723 :: FTP. 접속 완료.
+2021/12/27 09:38:10.723 :: FTP. 채널 상태 확인, 타겟 채널 개수(1)
+2021/12/27 09:38:10.730 :: START_INFO : /START_INFO/CH001
+2021/12/27 09:38:10.741 :: FTP responseCode 250
+2021/12/27 09:38:10.745 :: FTP. 채널 스캔 (MD:1, CH:1)
+2021/12/27 09:38:10.768 :: FTP. 작업 준비를 위한 채널 Clear 실행. (MD:1, CH:1)
+2021/12/27 09:38:10.785 :: FTP 전송 스케쥴 로딩 시작: d:\pmgrow\project\PNE_APISample\PNE_CSTAPISample\src\CSharp_Application_Sample\bin\x64\Debug\PNE\simpleTest.sch
+2021/12/27 09:38:10.787 :: 스케쥴 파일 로딩 성공
+2021/12/27 09:38:10.793 ::  SFT_CMD_SCHEDULE_START :: (1020) before sendcmmand
+2021/12/27 09:38:11.471 :: Module 1에 스케쥴 전송 준비 성공
+2021/12/27 09:38:11.471 ::  SFT_CMD_SCHEDULE_START :: (1020) after sendcmmand
+2021/12/27 09:38:11.478 :: c:\PNE\Schedule\M01[001]\StepStart\sbc_schedule_info.sch 파일 생성 시작
+2021/12/27 09:38:11.486 :: 고정 전압 상한: 4600.000000 온도 상한: 80.000000
+2021/12/27 09:38:11.503 :: c:\PNE\Schedule\M01[001]\StepStart\sbc_schedule_info.sch 파일 생성 완료
+2021/12/27 09:38:11.504 :: Set Chiller Use : 0
+2021/12/27 09:38:11.511 :: sbc로 전송하는 schedule File Size(35356), checksum(1450) 성공!!!
+(c:\PNE\Schedule\M01[001]\StepStart\sbc_schedule_info.sch)
+2021/12/27 09:38:11.516 :: 스케쥴 FTP로 전송 시작 (Fun_FtpPutFile :: 2021/12/27 09:38:11)
+2021/12/27 09:38:11.526 :: FTP responseCode 250
+2021/12/27 09:38:11.530 :: File Path : c:\PNE\Schedule\M01[001]\StepStart
+2021/12/27 09:38:11.537 :: File Name : sbc_schedule_info.sch
+2021/12/27 09:38:11.554 :: 스케쥴 FTP로 전송 완료 (Fun_FtpPutFile :: 2021/12/27 09:38:11)
+2021/12/27 09:38:11.555 :: 패턴 파일 개수 : 0, Wait Time : 0
+2021/12/27 09:38:12.163 :: Module 1에 스케쥴 전송 완료 성공 SFT_CMD_SCHEDULE_END 성공 
+2021/12/27 09:38:12.163 :: 스케쥴 전송 종료 (SendScheduleToModuleFTP :: 2021/12/27 09:38:12)
+2021/12/27 09:38:12.171 :: try FtpDisconnect1
+2021/12/27 09:38:12.177 :: try FtpDisconnect2
+2021/12/27 09:38:12.185 :: FtpDisconnect Complete
+2021/12/27 09:38:12.193 :: Receive Module:1, Channel:1 (sbc ready for RUN)
+duleNo [1] ch [1]
+2021/12/27 09:38:12.801 :: ctsSendCommandCh : 0x1000, res : 1 / prev : -1 / retry:0
+2021/12/27 09:38:12.801 :: Schedule run success 1
+2021/12/27 09:46:30.661 :: ctsSendSimpleTest Condition :: Step:1 StepType:4, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.000000 // EndTime:0.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:46:30.662 :: ctsSendSimpleTest Condition :: Step:2 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:1.000000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:46:30.671 :: ctsSendSimpleTest Condition :: Step:3 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:46:30.681 :: ctsSendSimpleTest Condition :: Step:4 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:10.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:46:30.689 :: ctsSendSimpleTest Condition :: Step:5 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:0.100000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:46:30.696 :: ctsSendSimpleTest Condition :: Step:6 StepType:3, Mode:0, Vref:0.000000(0.000000), Iref:0.000000, Pref:0.000000, ReportTime:20.500000 // EndTime:3.000000, EndV:0.000000(0.000000), EndI:0.000000, EndC:0.000000 // LimitV:0.000000(0.000000), LimitI:0.000000(0.000000), LimitC:0.000000(0.000000)
+2021/12/27 09:46:30.703 :: ctsSendSimpleTest :: "d:\pmgrow\project\PNE_APISample\PNE_CSTAPISample\src\CSharp_Application_Sample\bin\x64\Debug\PNE\simpleTest.sch"
+2021/12/27 09:46:31.016 :: ctsSendSchedule API Ver: Not Connected
+2021/12/27 09:46:31.016 :: ctsSendSchedule error. [NOT_CONNECTED]
