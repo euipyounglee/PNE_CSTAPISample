@@ -18,6 +18,23 @@ using System.Runtime.InteropServices;   //Dll을 사용할때 추가합니다.
 
 namespace CSharp_Application_Sample
 {
+
+
+
+    [StructLayout(LayoutKind.Explicit)]
+    struct WORDConverter
+    {
+        [FieldOffset(0)]
+        public uint Value;
+
+        [FieldOffset(0)]
+        public ushort LOWORD;
+
+        [FieldOffset(2)]
+        public ushort HIWORD;
+    }
+
+
     //EMG CODE 구조체 생성 API의 CTS_EMG_DATA 구조체 참고.
     [StructLayout(LayoutKind.Sequential)]
     public struct CTS_EMG_DATA
@@ -124,69 +141,64 @@ enum PS_STEP
 [StructLayout(LayoutKind.Sequential)]
     public struct CTS_SIMPLE_TEST_INFO
     {
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        // 시험 조건
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nStepType;             //   스텝. Charge:1, Discharge:2, Rest:3, OCV:4  
 
         [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
         public Int32 nMode;             //   모드. CCCV:1, CC:2 CV:3 CP:6   
 
-
-
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nRefVoltage;             // <  설정 전압 mV   
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nRefCurrent;             //   설정 전압 mA   
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nRefPower;             //   설정 파워 mW 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nRecordTime;				//  기록 시간 (1/10초) 예) 1초:10 , 20초:200, 0.1초: 1 
 
 
-
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
         //종료 조건
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nCutoffCondTime;            //  종료 시간 (초) 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nCutoffCondVolt;            //  종료 전압 mV 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nCutoffCondCurrent;         //  종료 전류 mA 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nCutoffCondAh;              //  종료 용량 mAh 
 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
         //안전 조건
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nSafetyVoltageHigh;         //  전압 상한 mV 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nSafetyVoltageLow;          //  전압 하한 mV 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nSafetyCurrentHigh;         //  전류 상한 mA 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nSafetyCurrentLow;          //  전류 하한 mA 
 
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32 nSafetyAhHigh;              //  용량 상한 mAh 
             
-        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]//길이 4
+        [MarshalAs(UnmanagedType.I4, SizeConst = 1)]
         public Int32  nSafetyAhLow;               //  용량 하한 mAh 
 
+        
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]//길이 = 12
+        public Int32[] nReserved;                   // 미사용
 
 
-       // [MarshalAs(UnmanagedType.LPArray, SizeConst = 12)]//길이 4 * 4 = 12
-      //  public int[] nReserved;             //  미사용 
-
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]//길이 4 * 4 = 16
-        public Int32[] reserved;
 
     }
 
@@ -197,7 +209,7 @@ enum PS_STEP
 #else
         private const  string STR_DllNAME = "PSServerAPI.dll";
 #endif
-        // private const string DLLNAME = "PSServerAPI.dll";
+        
 
 
         // 디버깅용 Test API 정의 ////////////////////////////////////////////////////////////////////////////////
@@ -241,13 +253,26 @@ enum PS_STEP
         [DllImport(STR_DllNAME)] //PSServerAPI.DLL 링크
         public static extern void ctsSetLogPath(string szLogPath);
 
+        public delegate void dCallbackChData(UInt32 nModIDandChIdex, ref CTS_VARIABLE_CH_DATA ChData);
+
+        [DllImport(STR_DllNAME)]
+        public static extern void CallbackChData(dCallbackChData handler);
+
+
         public Form1()
         {
             InitializeComponent();
 
             //ksj 20200728 : Callback delegate 선언
-            CALLBACK_CONNECTED CB_Connected = new CALLBACK_CONNECTED(ctsConnected);
-            CallbackConnected(CB_Connected);
+            try
+            {
+                CALLBACK_CONNECTED CB_Connected = new CALLBACK_CONNECTED(ctsConnected);
+                CallbackConnected(CB_Connected);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "DLL Error");
+                return;
+            }
         }
 
         //ksj 20200728 : delegate 호출 메소드 선언 (접속 이벤트)
@@ -356,39 +381,53 @@ enum PS_STEP
        //ctsApi 초기화 API 호출
        private void button5_Click(object sender, EventArgs e)
        {
-           int rtn = ctsServerCreate(1, this.Handle);
 
-            if(1 == rtn)
+            int rtn = ctsServerCreate(1, this.Handle);
+
+            if (1 == rtn)
             {
                 button6.Enabled = true;
+                MessageBox.Show("성공");//rtn : {0}", (1 == rtn ? 1 : rtn)));
+            }
+            else
+            {
+                MessageBox.Show(string.Format("rtn : {0}", rtn));//? 1 : rtn)));
+
             }
 
-           MessageBox.Show(string.Format("rtn : {0}", rtn));
-       }
+
+           
+        }
 
        //서버 listen 시작
        private void button6_Click(object sender, EventArgs e)
        {
            int rtn = ctsServerStart();
-
-           MessageBox.Show(string.Format("rtn : {0}", rtn));
+            if (1 == rtn)
+            {
+                MessageBox.Show("성공\n약10초후 시작...");
+            }
+            else
+            {
+                MessageBox.Show(string.Format("rtn : {0}", rtn));
+            }
             
            BtnSimpleState(false);
         }
 
         private void BtnSimpleState(bool bEnable)
         {
-        //    invoke.
+        
             if (this.InvokeRequired)
             {
                 this.Invoke(new MethodInvoker(delegate ()
                 {
-                    button8.Enabled = bEnable;// false; //활성화
+                    button8.Enabled = bEnable;
                 }));
             }
             else
             {
-                button8.Enabled = bEnable;// false; //활성화
+                button8.Enabled = bEnable;
             }
         }
 
@@ -455,21 +494,34 @@ enum PS_STEP
             str = string.Format("DATA IN {0},{1}\nDATA OUT {2},{3}", stDataIn.nTest, stDataIn.fTest, stDataOut.nTest, stDataOut.fTest);
             MessageBox.Show(str);
 
-            //listBox1.ControlAdded("aaa");
-         //   listBox1.Items.Add(str);
-
-
     }
 
         private void button8_Click(object sender, EventArgs e)
         {
           
-            SimepeTest();
+            if( 1 == SimepeTest())
+            {
+                var CallbackChData = new dCallbackChData(HandleCallbackChData);
+            }
+
             return;
 
         }
 
+        private void HandleCallbackChData(UInt32 nModIDandChIdex, ref CTS_VARIABLE_CH_DATA ChData)
+        {
 
+            var wc = new WORDConverter
+            {
+                Value = (uint)nModIDandChIdex
+            };
+            int nChIndex = wc.HIWORD;       // 0 : 채널 1, 1 : 채널 2, unused
+            int nModuleID = wc.LOWORD;
+
+            Console.WriteLine("::" + nChIndex.ToString());
+            BtnResultState(nChIndex.ToString());
+
+        }
 
         private int SimepeTest()
         {
@@ -518,6 +570,7 @@ enum PS_STEP
             {
                 // 정상
                 MessageBox.Show(string.Format("code ={0}", errCode.ToString()), "OK");
+             
             }
             else
             {
