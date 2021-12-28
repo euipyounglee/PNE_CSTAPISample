@@ -14,7 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;   //Dll을 사용할때 추가합니다.
-
+using System.IO;
+using System.Reflection;
 
 namespace CSharp_Application_Sample
 {
@@ -261,11 +262,14 @@ enum PS_STEP
 
         public Form1()
         {
+
             InitializeComponent();
 
             //ksj 20200728 : Callback delegate 선언
             try
             {
+                DllCureenSet();
+
                 CALLBACK_CONNECTED CB_Connected = new CALLBACK_CONNECTED(ctsConnected);
                 CallbackConnected(CB_Connected);
             }catch(Exception ex)
@@ -592,5 +596,36 @@ enum PS_STEP
 #endif
 
         }
+
+        int DllCureenSet()
+        {
+
+            int nReuslt = 0;
+            var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            path = Path.Combine(path, IntPtr.Size == 8 ? "x64" : "x86");
+
+            //DLL ?쎄린 吏?뺥븯湲?
+            string assemblyProbeDirectory = "";// Path.GetTempPath();// + "..\\..\\run\\x6x\\PSServerAPI64.dll";
+            if (8 == IntPtr.Size)
+            {
+                // assemblyProbeDirectory = string.Format("{0}\\PSServerAPI64.dll", path);
+                assemblyProbeDirectory = string.Format("{0}", path);
+            }
+            else
+            {
+                //assemblyProbeDirectory = string.Format("{0}\\PSServerAPI.dll", path);
+                assemblyProbeDirectory = string.Format("{0}", path);
+            }
+
+            if (Directory.Exists(assemblyProbeDirectory))
+            {
+                //?꾩옱 ?ㅽ뻾 ?꾩튂瑜??명똿?쒕떎.
+                Directory.SetCurrentDirectory(assemblyProbeDirectory);
+                nReuslt = 1;
+            }
+
+            return nReuslt;
+        }
+
     }
 }
