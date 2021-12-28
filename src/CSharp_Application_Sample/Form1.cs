@@ -295,11 +295,17 @@ enum PS_STEP
             BtnSimpleState(true); //서버 연결
 
             
-        //    MessageBox.Show(str,"OK"); // 통신 연결됨---- OK
+        
             Console.Write(str + "\n");
 
-            
-            BtnResultState(str); //통신 연결됨----OK
+            if ( 0 < sysinfo.nModuleID)
+            {
+                BtnResultState("Client(장비) 와 연결됨!!: " + str); //통신 연결됨----OK
+            }
+            else
+            {
+                BtnResultState(str); //통신 연결됨----OK
+            }
 
             return 0;
         }
@@ -388,10 +394,13 @@ enum PS_STEP
 
             int rtn = ctsServerCreate(1, this.Handle);
 
+            BtnResultState("ctsAPI 초기화 : " + rtn.ToString());
+
             if (1 == rtn)
             {
                 button6.Enabled = true;
                 MessageBox.Show("성공");//rtn : {0}", (1 == rtn ? 1 : rtn)));
+                //BtnResultState("성공: " + rtn.ToString());
             }
             else
             {
@@ -399,14 +408,18 @@ enum PS_STEP
 
             }
 
+            //BtnResultState("응답: " + rtn.ToString());
 
-           
+
         }
 
        //서버 listen 시작
        private void button6_Click(object sender, EventArgs e)
        {
            int rtn = ctsServerStart();
+
+            BtnResultState("서버 시작: " + rtn.ToString());
+
             if (1 == rtn)
             {
                 MessageBox.Show("성공\n약10초후 시작...");
@@ -415,8 +428,10 @@ enum PS_STEP
             {
                 MessageBox.Show(string.Format("rtn : {0}", rtn));
             }
-            
-           BtnSimpleState(false);
+
+            BtnResultState("Client 접속 : 대기중... ");
+
+            BtnSimpleState(false);
         }
 
         private void BtnSimpleState(bool bEnable)
@@ -506,11 +521,25 @@ enum PS_STEP
             if( 1 == SimepeTest())
             {
                 var CallbackChData = new dCallbackChData(HandleCallbackChData);
+                //cur
+                    //string strRoot = System.Environment.CurrentDirectory;
+                    var strRoot = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+
+                    string pathLog = string.Format("{0}{1}\\{2}", strRoot, gSubDir, "simpleTest.sch");
+                    if (File.Exists(pathLog)) {
+                        BtnResultState(pathLog);
+                        BtnResultState("이벤트 시작,콜백");
+                    }
+
             }
 
             return;
 
         }
+
+        string gSubDir = "\\PNE";
+
 
         private void HandleCallbackChData(UInt32 nModIDandChIdex, ref CTS_VARIABLE_CH_DATA ChData)
         {
@@ -531,10 +560,10 @@ enum PS_STEP
         {
             string root = System.Windows.Forms.Application.StartupPath;
 #if false
-            ctsSetLogPath("C:\\PNE1");
+            ctsSetLogPath("C:"+gSubDir);//PNE1");
 #else
             //실행파일 위치에 생성 시킴
-            string LogRoot = root + "\\PNE";
+            string LogRoot = root + gSubDir;// "\\PNE";
             ctsSetLogPath(LogRoot);
 #endif
 
@@ -602,19 +631,28 @@ enum PS_STEP
 
             int nReuslt = 0;
             var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+           
+#if x64
+            var pathTemp = Path.Combine(path,  "x64");
+#else
+            var pathTemp = Path.Combine(path,  "x86");
+#endif
+
             path = Path.Combine(path, IntPtr.Size == 8 ? "x64" : "x86");
+            if(pathTemp != path)
+            {
+                path = pathTemp;
+            }
+
 
             //DLL ?쎄린 吏?뺥븯湲?
-            string assemblyProbeDirectory = "";// Path.GetTempPath();// + "..\\..\\run\\x6x\\PSServerAPI64.dll";
-            if (8 == IntPtr.Size)
-            {
-                // assemblyProbeDirectory = string.Format("{0}\\PSServerAPI64.dll", path);
-                assemblyProbeDirectory = string.Format("{0}", path);
+            string assemblyProbeDirectory = "";
+            if (8 == IntPtr.Size)  {
+                assemblyProbeDirectory = string.Format("{0}", path);//x64
             }
-            else
-            {
-                //assemblyProbeDirectory = string.Format("{0}\\PSServerAPI.dll", path);
-                assemblyProbeDirectory = string.Format("{0}", path);
+            else {
+                assemblyProbeDirectory = string.Format("{0}", path);//x86
             }
 
             if (Directory.Exists(assemblyProbeDirectory))
