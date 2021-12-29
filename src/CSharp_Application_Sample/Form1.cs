@@ -527,7 +527,9 @@ enum PS_STEP
             var calcTask = Task.Run(() => 
             {
                 result = aSyncSimepeTest("\\PNE");
-             
+                Console.WriteLine("rtn : " + result.ToString());
+                BtnResultState(string.Format("sync {0}",result.ToString()));
+
             });
 
       //     await calcTask;
@@ -535,7 +537,7 @@ enum PS_STEP
             
             result = aSyncSimepeTest("c:\\PNE1");
 #endif
-            Console.WriteLine("rtn : " + result.ToString());
+          //  Console.WriteLine("rtn : " + result.ToString());
 
         }
 
