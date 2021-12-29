@@ -399,6 +399,7 @@ enum PS_STEP
             if (1 == rtn)
             {
                 button6.Enabled = true;
+                button7.Enabled = true;
                 MessageBox.Show("성공");//rtn : {0}", (1 == rtn ? 1 : rtn)));
                 //BtnResultState("성공: " + rtn.ToString());
             }
@@ -491,6 +492,8 @@ enum PS_STEP
         private void button7_Click(object sender, EventArgs e)
        {
            int rtn = ctsServerClose();
+
+           BtnResultState(string.Format("중지 rtn : {0}", rtn));
 
            MessageBox.Show(string.Format("rtn : {0}", rtn));
        }

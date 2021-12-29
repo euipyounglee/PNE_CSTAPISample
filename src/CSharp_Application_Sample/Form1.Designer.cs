@@ -118,7 +118,7 @@
             this.button8.Enabled = false;
             this.button8.Location = new System.Drawing.Point(0, 76);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(134, 44);
+            this.button8.Size = new System.Drawing.Size(140, 44);
             this.button8.TabIndex = 6;
             this.button8.Text = "3.Send Simple Test";
             this.button8.UseVisualStyleBackColor = true;
@@ -133,7 +133,7 @@
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Location = new System.Drawing.Point(36, 82);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(694, 295);
+            this.groupBox1.Size = new System.Drawing.Size(761, 295);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Simple Test";
@@ -144,14 +144,14 @@
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(0, 153);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(691, 136);
+            this.listBox1.Size = new System.Drawing.Size(755, 136);
             this.listBox1.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 418);
+            this.ClientSize = new System.Drawing.Size(824, 418);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
