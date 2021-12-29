@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;   //Dll을 사용할때 추가합니다.
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace CSharp_Application_Sample
 {
@@ -210,8 +211,8 @@ enum PS_STEP
 #else
         private const  string STR_DllNAME = "PSServerAPI.dll";
 #endif
-        
 
+        string gLogRoot = "";
 
         // 디버깅용 Test API 정의 ////////////////////////////////////////////////////////////////////////////////
         [DllImport(STR_DllNAME)] //PSServerAPI.DLL 링크
@@ -520,28 +521,56 @@ enum PS_STEP
 
         private void button8_Click(object sender, EventArgs e)
         {
-          
-            if( 1 == SimepeTest())
+                      
+            int result = 0;
+#if true
+            var calcTask = Task.Run(() => 
+            {
+                result = aSyncSimepeTest("\\PNE");
+             
+            });
+
+      //     await calcTask;
+#else
+            
+            result = aSyncSimepeTest("c:\\PNE1");
+#endif
+            Console.WriteLine("rtn : " + result.ToString());
+
+        }
+
+
+
+
+
+        public int aSyncSimepeTest(string strPath)
+        {
+
+            int result = 0;
+
+            result = SimepeTest(strPath); //장비에 스케쥴 보내기
+
+            if( 1 == result)
             {
                 var CallbackChData = new dCallbackChData(HandleCallbackChData);
-                //cur
+                
                     //string strRoot = System.Environment.CurrentDirectory;
                     var strRoot = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
 
-                    string pathLog = string.Format("{0}{1}\\{2}", strRoot, gSubDir, "simpleTest.sch");
+                    string pathLog = string.Format("{0}\\{1}", strRoot,  "simpleTest.sch");
                     if (File.Exists(pathLog)) {
                         BtnResultState(pathLog);
                         BtnResultState("이벤트 시작,콜백");
                     }
 
-            }
+           }
 
-            return;
+            return result;
 
         }
 
-        string gSubDir = "\\PNE";
+     
 
 
         private void HandleCallbackChData(UInt32 nModIDandChIdex, ref CTS_VARIABLE_CH_DATA ChData)
@@ -559,16 +588,45 @@ enum PS_STEP
 
         }
 
-        private int SimepeTest()
+        private int SimepeTest(string strPath)
         {
             string root = System.Windows.Forms.Application.StartupPath;
-#if false
-            ctsSetLogPath("C:"+gSubDir);//PNE1");
-#else
+
+
+
             //실행파일 위치에 생성 시킴
-            string LogRoot = root + gSubDir;// "\\PNE";
-            ctsSetLogPath(LogRoot);
-#endif
+
+            string LogRoot = root + strPath;// "\\PNE";
+
+            if ("" != strPath)
+            {
+                if (strPath.Contains(":"))
+                {
+                    gLogRoot = strPath;
+                }
+                else
+                {
+                    gLogRoot = LogRoot;
+                }
+            }
+
+
+
+            //실행파일 위치에 생성 시킴
+            if ("" == gLogRoot)
+            {
+                return 2;
+            }
+
+            ctsSetLogPath(gLogRoot);//API 폴더 생성
+
+            if (!Directory.Exists(gLogRoot))
+            {
+                return 4; //폴더 존재 않음
+            }
+
+            //BtnResultState(gLogRoot);
+
 
             int nModuleNum = 1;
             int nStepCount = 6;
@@ -599,18 +657,27 @@ enum PS_STEP
             SimpleSch[5].nCutoffCondTime = 3;
 
             String strOut = "1";
+            strOut = textBox1.Text;
+
             int errCode;
             errCode = ctsSendSimpleTest((uint)nModuleNum, Int32.Parse(strOut), 0, nStepCount, SimpleSch);
 
-            if (errCode == 1)
+
+            if (1 == errCode )
             {
+                BtnResultState(gLogRoot);
+
+                BtnResultState(string.Format("OK, code ={0}", errCode.ToString()));
+
                 // 정상
-                MessageBox.Show(string.Format("code ={0}", errCode.ToString()), "OK");
+              //  MessageBox.Show(string.Format("code ={0}", errCode.ToString()), "OK");
              
             }
             else
             {
-                MessageBox.Show(string.Format("code ={0}", errCode.ToString()), "Error");
+                BtnResultState(string.Format("Error, code = {0}", errCode.ToString()));
+
+              //  MessageBox.Show(string.Format("code ={0}", errCode.ToString()), "Error");
 
             }
 

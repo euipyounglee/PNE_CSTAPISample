@@ -38,6 +38,8 @@
             this.button8 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,7 +118,7 @@
             // button8
             // 
             this.button8.Enabled = false;
-            this.button8.Location = new System.Drawing.Point(0, 76);
+            this.button8.Location = new System.Drawing.Point(0, 92);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(140, 44);
             this.button8.TabIndex = 6;
@@ -126,6 +128,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.button7);
@@ -133,7 +137,7 @@
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Location = new System.Drawing.Point(36, 82);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(761, 295);
+            this.groupBox1.Size = new System.Drawing.Size(761, 324);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Simple Test";
@@ -144,8 +148,26 @@
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(0, 153);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(755, 136);
+            this.listBox1.Size = new System.Drawing.Size(755, 160);
             this.listBox1.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(187, 97);
+            this.textBox1.MaxLength = 1;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(52, 21);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.Text = "1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(155, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "CH:";
             // 
             // Form1
             // 
@@ -161,6 +183,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -177,6 +200,8 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
