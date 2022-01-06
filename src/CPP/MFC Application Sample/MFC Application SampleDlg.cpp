@@ -174,7 +174,7 @@ void TestCallBackConnected(int test, CTS_MD_SYSTEM_DATA* sysInfo)
 	strAddLog.Format("Installed ch Num : %d\r\n\r\n",sysInfo->nInstalledChCount);
 	((CMFCApplicationSampleDlg*)g_pParent)->AddLog(strAddLog);
 
-	((CMFCApplicationSampleDlg*)g_pParent)->UpdateDlg(TRUE);
+	((CMFCApplicationSampleDlg*)g_pParent)->UpdateDlg(TRUE);//버튼및 동작 활성화
 	
 	((CMFCApplicationSampleDlg*)g_pParent)->m_bConnected = TRUE;
 }
@@ -199,74 +199,74 @@ void TestCallBackGetChData(unsigned int nModIDandChIdex , CTS_VARIABLE_CH_DATA* 
 			ZeroMemory(&sVarChResultData, sizeof(CTS_VARIABLE_CH_DATA));
 			memcpy(&sVarChResultData, ChData, sizeof(CTS_VARIABLE_CH_DATA));
 
-			CString str;
+			CString strState;
 			switch (sVarChResultData.chData.chState)
 			{
 			case PS_STATE_LINE_OFF:
-				str = "disconnected";
+				strState = "disconnected";
 				break;
 			case PS_STATE_LINE_ON:
-				str = "connected";
+				strState = "connected";
 				break;
 			case PS_STATE_READY:
-				str = "ready";
+				strState = "ready";
 				break;
 			case PS_STATE_IDLE:
-				str = "idle";
+				strState = "idle";
 				break;
 			case PS_STATE_STANDBY:
-				str = "standby";
+				strState = "standby";
 				break;
 			case PS_STATE_RUN:
 				if (sVarChResultData.chData.chStepType == PS_STEP_NONE)
 				{
-					str = "run";
+					strState = "run";
 					//str.Format("None [%x]", sVarChResultData.chData.chMode);
 				}
 				else if (sVarChResultData.chData.chStepType == PS_STEP_CHARGE)
 				{
-					str = "Charge";
+					strState = "Charge";
 				}
 				else if (sVarChResultData.chData.chStepType == PS_STEP_DISCHARGE)
 				{
-					str = "Discharge";
+					strState = "Discharge";
 				}
 				else if (sVarChResultData.chData.chStepType == PS_STEP_REST)
 				{
-					str = "Rest";
+					strState = "Rest";
 				}
 				else if (sVarChResultData.chData.chStepType == PS_STEP_OCV)
 				{
-					str = "OCV";
+					strState = "OCV";
 				}
 				else if (sVarChResultData.chData.chStepType == PS_STEP_IMPEDANCE)
 				{
-					str = "Impedance";
+					strState = "Impedance";
 				}
 				else if (sVarChResultData.chData.chStepType == PS_STEP_END)
 				{
-					str = "End";
+					strState = "End";
 				}
 				else if (sVarChResultData.chData.chStepType == PS_STEP_LOOP)
 				{
-					str = "Loop";
+					strState = "Loop";
 				}
 				else if (sVarChResultData.chData.chStepType == PS_STEP_PATTERN)
 				{
-					str = "Pattern";
+					strState = "Pattern";
 				}
 				break;
 			case PS_STATE_PAUSE:
-				str = "pause";
+				strState = "pause";
 				break;
 			case PS_STATE_MAINTENANCE:
-				str = "maintenance";
+				strState = "maintenance";
 				break;
 			case PS_STATE_END:
-				str = "Complete";
+				strState = "Complete";
 				break;
 			default:
-				str = "disconnected";
+				strState = "disconnected";
 				break;
 			}
 
@@ -274,7 +274,7 @@ void TestCallBackGetChData(unsigned int nModIDandChIdex , CTS_VARIABLE_CH_DATA* 
 			if (sVarChResultData.chData.chNo == 1)
 			{
 				strOut.Format("State : %s, Voltage : %.3lfV, Current : %.3lfA, Code : %d", \
-					str, sVarChResultData.chData.lVoltage/1000000.0f, sVarChResultData.chData.lCurrent/1000000.0f, sVarChResultData.chData.chCode);
+					strState, sVarChResultData.chData.lVoltage/1000000.0f, sVarChResultData.chData.lCurrent/1000000.0f, sVarChResultData.chData.chCode);
 				((CMFCApplicationSampleDlg*)g_pParent)->m_StatusCh1.SetWindowTextA(strOut);
 				
 
@@ -286,19 +286,19 @@ void TestCallBackGetChData(unsigned int nModIDandChIdex , CTS_VARIABLE_CH_DATA* 
 			else if (sVarChResultData.chData.chNo == 2)
 			{
 				strOut.Format("State : %s, Voltage : %.3lfV, Current : %.3lfA, Code : %d", \
-					str, sVarChResultData.chData.lVoltage/1000000.0f, sVarChResultData.chData.lCurrent/1000000.0f, sVarChResultData.chData.chCode);
+					strState, sVarChResultData.chData.lVoltage/1000000.0f, sVarChResultData.chData.lCurrent/1000000.0f, sVarChResultData.chData.chCode);
 				((CMFCApplicationSampleDlg*)g_pParent)->m_StatusCh2.SetWindowTextA(strOut);
 			}
 			else if (sVarChResultData.chData.chNo == 3)
 			{
 				strOut.Format("State : %s, Voltage : %.3lfV, Current : %.3lfA, Code : %d", \
-					str, sVarChResultData.chData.lVoltage/1000000.0f, sVarChResultData.chData.lCurrent/1000000.0f, sVarChResultData.chData.chCode);
+					strState, sVarChResultData.chData.lVoltage/1000000.0f, sVarChResultData.chData.lCurrent/1000000.0f, sVarChResultData.chData.chCode);
 				((CMFCApplicationSampleDlg*)g_pParent)->m_StatusCh3.SetWindowTextA(strOut);
 			}
 			else if (sVarChResultData.chData.chNo == 4)
 			{
 				strOut.Format("State : %s, Voltage : %.3lfV, Current : %.3lfA, Code : %d", \
-					str, sVarChResultData.chData.lVoltage/1000000.0f, sVarChResultData.chData.lCurrent/1000000.0f, sVarChResultData.chData.chCode);
+					strState, sVarChResultData.chData.lVoltage/1000000.0f, sVarChResultData.chData.lCurrent/1000000.0f, sVarChResultData.chData.chCode);
 				((CMFCApplicationSampleDlg*)g_pParent)->m_StatusCh4.SetWindowTextA(strOut);
 			}
 		}
@@ -717,7 +717,7 @@ HCURSOR CMFCApplicationSampleDlg::OnQueryDragIcon()
 
 void CMFCApplicationSampleDlg::UpdateDlg(BOOL Enable)
 {
-	m_btSensSchedule.EnableWindow(Enable);
+	m_btSensSchedule.EnableWindow(Enable);//연결이 되면 활성화가 된다.
 	m_btSetAuxData.EnableWindow(Enable);
 	m_btSetCANReceive.EnableWindow(Enable); 
 	m_btSetCANTrancemit.EnableWindow(Enable);
@@ -738,7 +738,7 @@ void CMFCApplicationSampleDlg::UpdateDlg(BOOL Enable)
 ///////////////////////////////////////////////////////////////////////////
 void CMFCApplicationSampleDlg::OnBnClickedButtonConnect()
 {
-	ctsSetLogPath("c:\\Data\\log");				//로그 경로 지정
+	ctsSetLogPath("c:\\PNE\\Data\\log");				//로그 경로 지정
 
 	//int nRtn = ctsServerCreate(1,this->m_hWnd); //모듈 개수, 윈도우 핸들
 	int nRtn = ctsServerCreate(1,NULL); //모듈 개수, 윈도우 핸들
